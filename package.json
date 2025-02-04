@@ -43,6 +43,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
+    "helius-sdk": "^1.4.2",
     "memfs": "^4.17.0",
     "postcss": "^8.5.1",
     "postcss-preset-mantine": "^1.17.0",

@@ -8,6 +8,7 @@ import {
   LazyHomeFeature,
 } from './features'
 import { UiLayout } from './ui'
+import { IconHelius } from './ui/icon/helius.tsx'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,16 @@ const router = createBrowserRouter([
           { label: 'Home', icon: LucideHome, to: '/home' },
           { label: 'Account', icon: LucideWallet, to: '/account' },
           { label: 'Clusters', icon: LucideNetwork, to: '/clusters' },
+          {
+            label: 'Helius',
+            icon: IconHelius,
+            links: [
+              { to: '/helius/overview', label: 'Overview' },
+              { to: '/helius/das', label: 'DAS' },
+              { to: '/helius/webhooks', label: 'Webhooks' },
+              { to: '/helius/settings', label: 'Settings' },
+            ],
+          },
         ]}
       >
         <Outlet />
@@ -28,7 +39,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <Navigate to="./home" replace /> },
-      { path: '/helius', element: <LazyHeliusFeature /> },
+      { path: '/helius/*', element: <LazyHeliusFeature /> },
       { path: '/home', element: <LazyHomeFeature /> },
       { path: '/account', element: <LazyAccountListFeature /> },
       { path: '/account/:address', element: <LazyAccountDetailFeature /> },

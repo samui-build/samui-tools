@@ -2,15 +2,9 @@ import { AppShell, Loader } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { ReactNode, Suspense } from 'react'
 import { ClusterUiChecker } from '../features/cluster/ui'
-import { UiLayoutFooter } from './ui-layout-footer.tsx'
 import { AppLayoutHeaderLink, UiLayoutHeader } from './ui-layout-header.tsx'
 import { UiLayoutNavbarLinkGroup } from './ui-layout-navbar-links-group.tsx'
 import { UiLayoutNavbar } from './ui-layout-navbar.tsx'
-
-export interface AppLayoutLink {
-  label: string
-  to: string
-}
 
 export function UiLayout({
   children,
@@ -27,7 +21,6 @@ export function UiLayout({
   return (
     <AppShell
       header={{ height: 50 }}
-      footer={{ height: 50 }}
       navbar={
         hasNavbar
           ? {
@@ -37,7 +30,11 @@ export function UiLayout({
             }
           : undefined
       }
-      padding="md"
+      padding={0}
+      styles={{
+        main: { height: '100%', overflow: 'hidden' },
+        root: { height: '100%' },
+      }}
     >
       <AppShell.Header>
         <UiLayoutHeader hasNavbar={hasNavbar} links={headerLinks} opened={opened} toggle={toggle} />
@@ -50,14 +47,11 @@ export function UiLayout({
       <AppShell.Main>
         <Suspense fallback={<Loader />}>
           <ClusterUiChecker>
-            <div />
+            <></>
           </ClusterUiChecker>
           {children}
         </Suspense>
       </AppShell.Main>
-      <AppShell.Footer>
-        <UiLayoutFooter />
-      </AppShell.Footer>
     </AppShell>
   )
 }

@@ -9,7 +9,6 @@ export interface UiLayoutNavbarLinkGroup {
   icon?: ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>
   label: string
   to?: string
-  initiallyOpened?: boolean
   links?: UiLayoutNavbarLink[]
 }
 
@@ -21,18 +20,26 @@ export interface UiLayoutNavbarLink {
 export function UiLayoutNavbarLinksGroup({
   icon: Icon,
   label,
-  initiallyOpened,
   links,
   close,
   to,
 }: UiLayoutNavbarLinkGroup & { close: () => void }) {
   const { pathname } = useLocation()
   const isActive = to ? pathname.startsWith(to) : false
+  const initiallyOpened = links?.length ? links.some((link) => pathname.startsWith(link.to)) : false
   const hasLinks = Array.isArray(links)
   const [opened, setOpened] = useState(initiallyOpened || false)
   const items = (hasLinks ? links : []).map((link) => {
+    const isActive = pathname.startsWith(link.to)
     return (
-      <Text component={Link} className={classes.link} to={link.to} key={link.label} onClick={close}>
+      <Text
+        component={Link}
+        className={classes.link}
+        to={link.to}
+        key={link.label}
+        onClick={close}
+        data-active={isActive}
+      >
         {link.label}
       </Text>
     )
