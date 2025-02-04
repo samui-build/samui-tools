@@ -1,8 +1,7 @@
-import { Burger, Button, Group, Image } from '@mantine/core'
-import { ReactNode } from 'react'
+import { Burger, Button, Flex, Group } from '@mantine/core'
 import { NavLink as Link, useLocation } from 'react-router'
-
-const appLogo = '/logo.svg'
+import { WalletButton, WalletIcon } from '../features/solana/solana-provider.tsx'
+import { UiLayoutLogo } from './ui-layout-logo.tsx'
 
 export interface AppLayoutHeaderLink {
   label: string
@@ -10,13 +9,11 @@ export interface AppLayoutHeaderLink {
 }
 
 export function UiLayoutHeader({
-  profile,
   hasNavbar,
   links = [],
   opened,
   toggle,
 }: {
-  profile: ReactNode
   hasNavbar: boolean
   links?: AppLayoutHeaderLink[]
   opened: boolean
@@ -25,24 +22,15 @@ export function UiLayoutHeader({
   const { pathname } = useLocation()
 
   return (
-    <Group justify="space-between" align="center" h="100%" px="md">
+    <Group justify="space-between" align="center" h="100%" px="xs" wrap="nowrap">
       <Group justify="center" align="center" wrap="nowrap">
         {hasNavbar ? <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" /> : null}
-
-        <Button
-          size="lg"
-          variant="subtle"
-          leftSection={<Image src={appLogo} width={30} height={30} />}
-          component={Link}
-          to="/"
-        >
-          Samui Tools
-        </Button>
-
+        <UiLayoutLogo />
         {links.length ? (
-          <Group>
+          <Group wrap="nowrap" gap="xs">
             {links.map((link) => (
               <Button
+                size="xs"
                 key={link.to}
                 component={Link}
                 to={link.to}
@@ -54,8 +42,13 @@ export function UiLayoutHeader({
           </Group>
         ) : null}
       </Group>
-      <Group justify="center" align="center">
-        {profile}
+      <Group justify="center" align="center" wrap="nowrap" gap="xs">
+        <Flex visibleFrom="sm">
+          <WalletButton size="xs" variant="light" />
+        </Flex>
+        <Flex hiddenFrom="sm">
+          <WalletIcon size="md" />
+        </Flex>
       </Group>
     </Group>
   )

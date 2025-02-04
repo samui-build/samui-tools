@@ -3,6 +3,7 @@ import { useDisclosure } from '@mantine/hooks'
 import { ReactNode, Suspense } from 'react'
 import { NavLink as Link } from 'react-router'
 import { ClusterUiChecker } from '../features/cluster/ui'
+import { UiLayoutFooter } from './ui-layout-footer.tsx'
 import { AppLayoutHeaderLink, UiLayoutHeader } from './ui-layout-header.tsx'
 
 export interface AppLayoutLink {
@@ -14,19 +15,18 @@ export function UiLayout({
   children,
   headerLinks = [],
   navbarLinks = [],
-  profile,
 }: {
   children: ReactNode
   headerLinks?: AppLayoutHeaderLink[]
   navbarLinks?: AppLayoutLink[]
-  profile: ReactNode
 }) {
   const [opened, { toggle, close }] = useDisclosure()
   const hasNavbar = navbarLinks.length > 0
 
   return (
     <AppShell
-      header={{ height: 60 }}
+      header={{ height: 50 }}
+      footer={{ height: 50 }}
       navbar={
         hasNavbar
           ? {
@@ -39,9 +39,8 @@ export function UiLayout({
       padding="md"
     >
       <AppShell.Header>
-        <UiLayoutHeader hasNavbar={hasNavbar} links={headerLinks} profile={profile} opened={opened} toggle={toggle} />
+        <UiLayoutHeader hasNavbar={hasNavbar} links={headerLinks} opened={opened} toggle={toggle} />
       </AppShell.Header>
-
       {hasNavbar ? (
         <AppShell.Navbar p="md">
           {navbarLinks.map((link) => (
@@ -57,7 +56,6 @@ export function UiLayout({
           ))}
         </AppShell.Navbar>
       ) : null}
-
       <AppShell.Main>
         <Suspense fallback={<Loader />}>
           <ClusterUiChecker>
@@ -66,6 +64,9 @@ export function UiLayout({
           {children}
         </Suspense>
       </AppShell.Main>
+      <AppShell.Footer>
+        <UiLayoutFooter />
+      </AppShell.Footer>
     </AppShell>
   )
 }

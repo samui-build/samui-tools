@@ -1,43 +1,37 @@
-import { Group } from '@mantine/core'
-import { lazy } from 'react'
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router'
-import { ClusterUiSelect } from './features/cluster/ui'
-import { HomeFeature } from './features/home/home.feature'
-import { WalletButton } from './features/solana/solana-provider'
-import { UiLayout } from './ui/ui-layout.tsx'
-import { UiThemeToggle } from './ui/ui-theme-toggle.tsx'
-
-const AccountList = lazy(() => import('./features/account/account-feature-list'))
-const AccountDetail = lazy(() => import('./features/account/account-feature-detail'))
-const ClusterFeature = lazy(() => import('./features/cluster/cluster-feature'))
-
-const headerLinks = [
-  { label: 'Home', to: '/home' },
-  { label: 'Account', to: '/account' },
-]
+import {
+  LazyAccountDetailFeature,
+  LazyAccountListFeature,
+  LazyClusterFeature,
+  LazyHeliusFeature,
+  LazyHomeFeature,
+} from './features'
+import { UiLayout } from './ui'
 
 const router = createBrowserRouter([
   {
     element: (
       <UiLayout
-        headerLinks={headerLinks}
-        profile={
-          <Group>
-            <UiThemeToggle />
-            <WalletButton />
-            <ClusterUiSelect />
-          </Group>
-        }
+        headerLinks={[
+          { label: 'Home', to: '/home' },
+          { label: 'Account', to: '/account' },
+        ]}
+        navbarLinks={[
+          { label: 'Home', to: '/home' },
+          { label: 'Helius', to: '/helius' },
+          { label: 'Account', to: '/account' },
+        ]}
       >
         <Outlet />
       </UiLayout>
     ),
     children: [
       { index: true, element: <Navigate to="./home" replace /> },
-      { path: '/home', element: <HomeFeature /> },
-      { path: '/account', element: <AccountList /> },
-      { path: '/account/:address', element: <AccountDetail /> },
-      { path: '/clusters', element: <ClusterFeature /> },
+      { path: '/helius', element: <LazyHeliusFeature /> },
+      { path: '/home', element: <LazyHomeFeature /> },
+      { path: '/account', element: <LazyAccountListFeature /> },
+      { path: '/account/:address', element: <LazyAccountDetailFeature /> },
+      { path: '/clusters', element: <LazyClusterFeature /> },
     ],
   },
 ])
