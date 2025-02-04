@@ -1,3 +1,4 @@
+import { LucideHome, LucideNetwork, LucideWallet } from 'lucide-react'
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router'
 import {
   LazyAccountDetailFeature,
@@ -16,10 +17,10 @@ const router = createBrowserRouter([
           { label: 'Home', to: '/home' },
           { label: 'Account', to: '/account' },
         ]}
-        navbarLinks={[
-          { label: 'Home', to: '/home' },
-          { label: 'Helius', to: '/helius' },
-          { label: 'Account', to: '/account' },
+        navbarLinkGroups={[
+          { label: 'Home', icon: LucideHome, to: '/home' },
+          { label: 'Account', icon: LucideWallet, to: '/account' },
+          { label: 'Clusters', icon: LucideNetwork, to: '/clusters' },
         ]}
       >
         <Outlet />

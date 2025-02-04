@@ -1,10 +1,11 @@
-import { AppShell, Loader, NavLink } from '@mantine/core'
+import { AppShell, Loader } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { ReactNode, Suspense } from 'react'
-import { NavLink as Link } from 'react-router'
 import { ClusterUiChecker } from '../features/cluster/ui'
 import { UiLayoutFooter } from './ui-layout-footer.tsx'
 import { AppLayoutHeaderLink, UiLayoutHeader } from './ui-layout-header.tsx'
+import { UiLayoutNavbarLinkGroup } from './ui-layout-navbar-links-group.tsx'
+import { UiLayoutNavbar } from './ui-layout-navbar.tsx'
 
 export interface AppLayoutLink {
   label: string
@@ -14,14 +15,14 @@ export interface AppLayoutLink {
 export function UiLayout({
   children,
   headerLinks = [],
-  navbarLinks = [],
+  navbarLinkGroups = [],
 }: {
   children: ReactNode
   headerLinks?: AppLayoutHeaderLink[]
-  navbarLinks?: AppLayoutLink[]
+  navbarLinkGroups?: UiLayoutNavbarLinkGroup[]
 }) {
   const [opened, { toggle, close }] = useDisclosure()
-  const hasNavbar = navbarLinks.length > 0
+  const hasNavbar = navbarLinkGroups.length > 0
 
   return (
     <AppShell
@@ -42,18 +43,8 @@ export function UiLayout({
         <UiLayoutHeader hasNavbar={hasNavbar} links={headerLinks} opened={opened} toggle={toggle} />
       </AppShell.Header>
       {hasNavbar ? (
-        <AppShell.Navbar p="md">
-          {navbarLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              component={Link}
-              to={link.to}
-              label={link.label}
-              onClick={() => {
-                close()
-              }}
-            />
-          ))}
+        <AppShell.Navbar>
+          <UiLayoutNavbar groups={navbarLinkGroups} close={close} />
         </AppShell.Navbar>
       ) : null}
       <AppShell.Main>

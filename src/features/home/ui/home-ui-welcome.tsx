@@ -10,7 +10,7 @@ export function HomeUiWelcome() {
         </Text>
       </Title>
       <Text c="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
-        A random set of tools!
+        Open Source Solana toolbox for builders.
       </Text>
     </Stack>
   )
