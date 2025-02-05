@@ -1,5 +1,5 @@
 import { Navigate, useRoutes } from 'react-router'
-import { HeliusProvider } from './data-access/helius-provider.tsx'
+import { HeliusProvider } from './data-access'
 import { HeliusFeatureDas } from './helius-feature-das.tsx'
 import { HeliusFeatureOverview } from './helius-feature-overview.tsx'
 import { HeliusFeatureSettings } from './helius-feature-settings.tsx'

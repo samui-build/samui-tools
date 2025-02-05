@@ -1,6 +1,7 @@
-import { Alert, Button, Group, Text } from '@mantine/core'
+import { ActionIcon, Alert, Group, Text } from '@mantine/core'
 import { useConnection } from '@solana/wallet-adapter-react'
 import { useQuery } from '@tanstack/react-query'
+import { LucideRefreshCw } from 'lucide-react'
 import { ReactNode } from 'react'
 import { useCluster } from '../data-access'
 
@@ -19,22 +20,22 @@ export function ClusterUiChecker({ children }: { children: ReactNode }) {
   if (query.isError || !query.data) {
     return (
       <Alert
+        variant="outline"
         color="yellow"
         styles={{
-          root: { display: 'flex', justifyContent: 'center' },
-          title: { justifyContent: 'center' },
+          label: { width: '100%' },
         }}
-        title="Error connecting to cluster"
-      >
-        <Group justify="center">
-          <Text>
-            Error connecting to cluster <strong>{cluster.name}</strong>
-          </Text>
-          <Button variant="light" color="yellow" size="xs" onClick={() => query.refetch()}>
-            Refresh
-          </Button>
-        </Group>
-      </Alert>
+        title={
+          <Group justify="center" gap="xs">
+            <Text>
+              Error connecting to cluster <strong>{cluster.name}</strong>
+            </Text>
+            <ActionIcon variant="light" color="yellow" size="sm" onClick={() => query.refetch()}>
+              <LucideRefreshCw size={16} />
+            </ActionIcon>
+          </Group>
+        }
+      />
     )
   }
   return children

@@ -70,6 +70,7 @@ export function UiLayoutNavbarLinksGroup({
       to={to}
       className={`${classes.control} ${isActive ? 'active' : 'active'}`}
       data-active={isActive}
+      onClick={close}
     >
       {content}
     </UnstyledButton>
