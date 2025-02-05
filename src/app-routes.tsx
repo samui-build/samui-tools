@@ -7,6 +7,7 @@ import {
   LazyHomeFeature,
   LazyKeypairFeature,
   LazyLabelFeature,
+  LazyMplCoreFeature,
   LazyTodoFeature,
   LazyTokenFeature,
 } from '@/features'
@@ -14,6 +15,7 @@ import { IconHelius, UiLayout } from '@/ui'
 import {
   LucideBug,
   LucideCoins,
+  LucideHandMetal,
   LucideHome,
   LucideKey,
   LucideListChecks,
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
               { to: '/helius/settings', label: 'Settings' },
             ],
           },
+          {
+            label: 'Metaplex Core',
+            icon: LucideHandMetal,
+            links: [
+              { to: '/mpl-core/explorer', label: 'Explorer' },
+              { to: '/mpl-core/create', label: 'Create' },
+            ],
+          },
           { label: 'Clusters', icon: LucideNetwork, to: '/clusters' },
           { label: 'Labels', icon: LucideTags, to: '/labels' },
           { label: 'Todo', icon: LucideListChecks, to: '/todo' },
@@ -71,6 +81,7 @@ const router = createBrowserRouter([
       { path: '/home', element: <LazyHomeFeature /> },
       { path: '/keypairs/*', element: <LazyKeypairFeature /> },
       { path: '/labels/*', element: <LazyLabelFeature /> },
+      { path: '/mpl-core/*', element: <LazyMplCoreFeature /> },
       { path: '/todo/*', element: <LazyTodoFeature /> },
       { path: '/tokens/*', element: <LazyTokenFeature /> },
     ],

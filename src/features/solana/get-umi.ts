@@ -10,16 +10,11 @@ export function getUmi({
 }: {
   commitment?: Commitment
   endpoint: string
-  wallet: WalletAdapter | null
+  wallet: WalletAdapter
 }) {
   const umi = createUmi(endpoint, { commitment })
 
   umi.use(mplCandyMachine())
-
-  if (!wallet) {
-    return umi
-  }
-
   umi.use(walletAdapterIdentity(wallet))
 
   return umi
