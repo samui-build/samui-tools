@@ -1,7 +1,7 @@
+import { ClusterUiChecker } from '@/features/cluster/ui'
 import { AppShell, Loader } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { ReactNode, Suspense } from 'react'
-import { ClusterUiChecker } from '../features/cluster/ui'
 import { AppLayoutHeaderLink, UiLayoutHeader } from './ui-layout-header.tsx'
 import { UiLayoutNavbarLinkGroup } from './ui-layout-navbar-links-group.tsx'
 import { UiLayoutNavbar } from './ui-layout-navbar.tsx'

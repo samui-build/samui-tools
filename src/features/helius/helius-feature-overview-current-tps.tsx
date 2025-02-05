@@ -1,6 +1,6 @@
+import { UiCard } from '@/ui'
 import { ActionIcon, Box, Stack, Tooltip } from '@mantine/core'
 import { LucidePlay } from 'lucide-react'
-import { UiCard } from '../../ui/ui-card.tsx'
 import { useHeliusGetCurrentTpsMutation } from './data-access'
 
 export function HeliusFeatureOverviewCurrentTps() {

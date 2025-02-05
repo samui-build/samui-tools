@@ -1,6 +1,5 @@
+import { IconHelius, UiPage } from '@/ui'
 import { Navigate, useRoutes } from 'react-router'
-import { UiPage } from '../../ui'
-import { IconHelius } from '../../ui/icon/helius.tsx'
 import { HeliusProvider } from './data-access'
 import { HeliusFeatureDas } from './helius-feature-das.tsx'
 import { HeliusFeatureOverview } from './helius-feature-overview.tsx'

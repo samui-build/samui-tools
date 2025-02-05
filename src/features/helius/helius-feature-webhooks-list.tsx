@@ -1,7 +1,7 @@
+import { UiCard } from '@/ui'
 import { Accordion, Alert, Stack } from '@mantine/core'
 import { Webhook } from 'helius-sdk'
 import { LucideWebhook } from 'lucide-react'
-import { UiCard } from '../../ui/ui-card.tsx'
 import { useHeliusGetAllWebhooks } from './data-access'
 
 export function HeliusFeatureWebhooksList() {

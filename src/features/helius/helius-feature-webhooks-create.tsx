@@ -1,5 +1,5 @@
+import { UiCard } from '@/ui'
 import { Alert, Stack } from '@mantine/core'
-import { UiCard } from '../../ui/ui-card.tsx'
 import { useHeliusCreateWebhook } from './data-access'
 import { HeliusUiWebhookCreateForm } from './ui/helius-ui-webhook-create-form.tsx'
 

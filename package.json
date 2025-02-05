@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validator": "docker run -it -p 8899:8899 -p 8900:8900 --rm --name samui-test-validator ghcr.io/samui-build/samui-test-validator:latest"
   },
   "dependencies": {
     "@mantine/core": "^7.16.2",
@@ -19,11 +20,13 @@
     "@mantine/notifications": "^7.16.2",
     "@metaplex-foundation/mpl-core": "^1.2.0",
     "@metaplex-foundation/mpl-core-candy-machine": "^0.3.0",
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
     "@metaplex-foundation/umi": "^1.0.0",
     "@metaplex-foundation/umi-bundle-defaults": "^1.0.0",
     "@metaplex-foundation/umi-signer-wallet-adapters": "^1.0.0",
     "@pubkeyapp/wallet-adapter-mantine-ui": "^2.3.0",
     "@solana/spl-token": "^0.4.12",
+    "@solana/spl-token-metadata": "^0.1.6",
     "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-react": "^0.15.35",
     "@solana/web3.js": "^1.98.0",
@@ -54,6 +57,7 @@
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5",
-    "vite-plugin-node-polyfills": "^0.23.0"
+    "vite-plugin-node-polyfills": "^0.23.0",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

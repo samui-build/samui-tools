@@ -1,5 +1,5 @@
+import { toastError } from '@/ui'
 import { Helius, Webhook } from 'helius-sdk'
-import { toastError } from '../../../ui'
 
 export async function heliusGetAllWebhooks(helius: Helius): Promise<Webhook[]> {
   try {

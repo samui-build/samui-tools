@@ -1,6 +1,6 @@
+import { UiPage } from '@/ui'
 import { LucideNetwork } from 'lucide-react'
 import { useRoutes } from 'react-router'
-import { UiPage } from '../../ui'
 import { ClusterUiModal, ClusterUiTable } from './ui'
 
 export default function ClusterFeature() {

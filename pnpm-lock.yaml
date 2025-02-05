@@ -29,6 +29,9 @@ importers:
       '@metaplex-foundation/mpl-core-candy-machine':
         specifier: ^0.3.0
         version: 0.3.0(@metaplex-foundation/mpl-core@1.2.0(@metaplex-foundation/umi@1.0.0)(@noble/hashes@1.7.1))(@metaplex-foundation/umi@1.0.0)
+      '@metaplex-foundation/mpl-token-metadata':
+        specifier: ^3.4.0
+        version: 3.4.0(@metaplex-foundation/umi@1.0.0)
       '@metaplex-foundation/umi':
         specifier: ^1.0.0
         version: 1.0.0
@@ -44,6 +47,9 @@ importers:
       '@solana/spl-token':
         specifier: ^0.4.12
         version: 0.4.12(@solana/web3.js@1.98.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.6.3)(utf-8-validate@5.0.10)
+      '@solana/spl-token-metadata':
+        specifier: ^0.1.6
+        version: 0.1.6(@solana/web3.js@1.98.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.6.3)
       '@solana/wallet-adapter-base':
         specifier: ^0.9.23
         version: 0.9.23(@solana/web3.js@1.98.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
@@ -132,6 +138,9 @@ importers:
       vite-plugin-node-polyfills:
         specifier: ^0.23.0
         version: 0.23.0(rollup@4.34.2)(vite@6.0.11(@types/node@22.13.1)(sugarss@4.0.1(postcss@8.5.1))(terser@5.37.0)(yaml@2.7.0))
+      vite-tsconfig-paths:
+        specifier: ^5.1.4
+        version: 5.1.4(typescript@5.6.3)(vite@6.0.11(@types/node@22.13.1)(sugarss@4.0.1(postcss@8.5.1))(terser@5.37.0)(yaml@2.7.0))
 
 packages:
 
@@ -1276,6 +1285,16 @@ packages:
     resolution: {integrity: sha512-MSERz5HB2XZ/K+FOMh0tPeqcZZEpGVzdy7e+Cy3MHg7x52JtbGBDtWIoxBJn1OBZayCBfX9gytEoqrXe2YRGqQ==}
     peerDependencies:
       '@metaplex-foundation/umi': ^0.8.2
+
+  '@metaplex-foundation/mpl-token-metadata@3.4.0':
+    resolution: {integrity: sha512-AxBAYCK73JWxY3g9//z/C9krkR0t1orXZDknUPS4+GjwGH2vgPfsk04yfZ31Htka2AdS9YE/3wH7sMUBHKn9Rg==}
+    peerDependencies:
+      '@metaplex-foundation/umi': '>= 0.8.2 <= 1'
+
+  '@metaplex-foundation/mpl-toolbox@0.10.0':
+    resolution: {integrity: sha512-84KD1L5cFyw5xnntHwL4uPwfcrkKSiwuDeypiVr92qCUFuF3ZENa2zlFVPu+pQcjTlod2LmEX3MhBmNjRMpdKg==}
+    peerDependencies:
+      '@metaplex-foundation/umi': '>= 0.8.2 <= 1'
 
   '@metaplex-foundation/mpl-toolbox@0.9.4':
     resolution: {integrity: sha512-fd6JxfoLbj/MM8FG2x91KYVy1U6AjBQw4qjt7+Da3trzQaWnSaYHDcYRG/53xqfvZ9qofY1T2t53GXPlD87lnQ==}
@@ -2943,6 +2962,9 @@ packages:
     resolution: {integrity: sha512-OkToC372DtlQeje9/zHIo5CT8lRP/FUgEOKBEhU4e0abL7J7CD24fD9ohiLN5hagG/kWCYj4K5oaxxtj2Z0Dig==}
     engines: {node: '>=18'}
 
+  globrex@0.1.2:
+    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
+
   gopd@1.2.0:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
     engines: {node: '>= 0.4'}
@@ -4382,6 +4404,16 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
+  tsconfck@3.1.4:
+    resolution: {integrity: sha512-kdqWFGVJqe+KGYvlSO9NIaWn9jT1Ny4oKVzAJsKii5eoE9snzTJzL4+MMVOMn+fikWGFmKEylcXL710V/kIPJQ==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+    peerDependencies:
+      typescript: ^5.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
@@ -4534,6 +4566,14 @@ packages:
     resolution: {integrity: sha512-4n+Ys+2bKHQohPBKigFlndwWQ5fFKwaGY6muNDMTb0fSQLyBzS+jjUNRZG9sKF0S/Go4ApG6LFnUGopjkILg3w==}
     peerDependencies:
       vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
+
+  vite-tsconfig-paths@5.1.4:
+    resolution: {integrity: sha512-cYj0LRuLV2c2sMqhqhGpaO3LretdtMn/BVX4cPLanIZuwwrkVl+lK84E/miEXkCHWXuq65rhNN4rXsBcOB3S4w==}
+    peerDependencies:
+      vite: '*'
+    peerDependenciesMeta:
+      vite:
+        optional: true
 
   vite@6.0.11:
     resolution: {integrity: sha512-4VL9mQPKoHy4+FE0NnRE/kbY51TOfaknxAjt3fJbGJxhIpBZiqVzlZDEesWWsuREXHwNdAoOFZ9MkPEVXczHwg==}
@@ -6239,6 +6279,15 @@ snapshots:
   '@metaplex-foundation/mpl-token-metadata@3.0.0-alpha.27(@metaplex-foundation/umi@1.0.0)':
     dependencies:
       '@metaplex-foundation/mpl-toolbox': 0.9.4(@metaplex-foundation/umi@1.0.0)
+      '@metaplex-foundation/umi': 1.0.0
+
+  '@metaplex-foundation/mpl-token-metadata@3.4.0(@metaplex-foundation/umi@1.0.0)':
+    dependencies:
+      '@metaplex-foundation/mpl-toolbox': 0.10.0(@metaplex-foundation/umi@1.0.0)
+      '@metaplex-foundation/umi': 1.0.0
+
+  '@metaplex-foundation/mpl-toolbox@0.10.0(@metaplex-foundation/umi@1.0.0)':
+    dependencies:
       '@metaplex-foundation/umi': 1.0.0
 
   '@metaplex-foundation/mpl-toolbox@0.9.4(@metaplex-foundation/umi@1.0.0)':
@@ -8357,6 +8406,8 @@ snapshots:
 
   globals@15.14.0: {}
 
+  globrex@0.1.2: {}
+
   gopd@1.2.0: {}
 
   got@11.8.6:
@@ -10030,6 +10081,10 @@ snapshots:
     dependencies:
       typescript: 5.6.3
 
+  tsconfck@3.1.4(typescript@5.6.3):
+    optionalDependencies:
+      typescript: 5.6.3
+
   tslib@2.8.1: {}
 
   tty-browserify@0.0.1: {}
@@ -10154,6 +10209,17 @@ snapshots:
       vite: 6.0.11(@types/node@22.13.1)(sugarss@4.0.1(postcss@8.5.1))(terser@5.37.0)(yaml@2.7.0)
     transitivePeerDependencies:
       - rollup
+
+  vite-tsconfig-paths@5.1.4(typescript@5.6.3)(vite@6.0.11(@types/node@22.13.1)(sugarss@4.0.1(postcss@8.5.1))(terser@5.37.0)(yaml@2.7.0)):
+    dependencies:
+      debug: 4.4.0
+      globrex: 0.1.2
+      tsconfck: 3.1.4(typescript@5.6.3)
+    optionalDependencies:
+      vite: 6.0.11(@types/node@22.13.1)(sugarss@4.0.1(postcss@8.5.1))(terser@5.37.0)(yaml@2.7.0)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   vite@6.0.11(@types/node@22.13.1)(sugarss@4.0.1(postcss@8.5.1))(terser@5.37.0)(yaml@2.7.0):
     dependencies:

@@ -1,3 +1,4 @@
+import { toastError, toastSuccess } from '@/ui'
 import { Anchor } from '@mantine/core'
 import { NotificationData } from '@mantine/notifications'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
@@ -11,7 +12,6 @@ import {
   VersionedTransaction,
 } from '@solana/web3.js'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { toastError, toastSuccess } from '../../../ui'
 import { useCluster } from '../../cluster/data-access'
 import { getAllTokenAccounts } from './get-all-token-accounts'
 

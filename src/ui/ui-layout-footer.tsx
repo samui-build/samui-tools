@@ -1,5 +1,5 @@
+import { ClusterUiSelect } from '@/features/cluster/ui'
 import { Group } from '@mantine/core'
-import { ClusterUiSelect } from '../features/cluster/ui'
 import { UiThemeToggle } from './ui-theme-toggle.tsx'
 
 export function UiLayoutFooter() {

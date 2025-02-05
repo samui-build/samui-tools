@@ -1,6 +1,6 @@
+import { useHelius } from '@/features/helius/data-access'
 import { Button } from '@mantine/core'
 import { HeliusCluster } from 'helius-sdk'
-import { useHelius } from '../data-access/helius-provider.tsx'
 
 export function HeliusUiClusterButton(props: { cluster: HeliusCluster }) {
   const { cluster, setCluster } = useHelius()

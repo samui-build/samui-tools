@@ -1,5 +1,3 @@
-import { LucideBug, LucideHome, LucideListChecks, LucideNetwork, LucideTags, LucideWallet } from 'lucide-react'
-import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router'
 import {
   LazyAccountDetailFeature,
   LazyAccountListFeature,
@@ -7,11 +5,23 @@ import {
   LazyDevFeature,
   LazyHeliusFeature,
   LazyHomeFeature,
+  LazyKeypairFeature,
   LazyLabelFeature,
   LazyTodoFeature,
-} from './features'
-import { UiLayout } from './ui'
-import { IconHelius } from './ui/icon/helius.tsx'
+  LazyTokenFeature,
+} from '@/features'
+import { IconHelius, UiLayout } from '@/ui'
+import {
+  LucideBug,
+  LucideCoins,
+  LucideHome,
+  LucideKey,
+  LucideListChecks,
+  LucideNetwork,
+  LucideTags,
+  LucideWallet,
+} from 'lucide-react'
+import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router'
 
 const router = createBrowserRouter([
   {
@@ -28,16 +38,10 @@ const router = createBrowserRouter([
           },
         ]}
         navbarLinkGroups={[
-          {
-            label: 'Home',
-            icon: LucideHome,
-            to: '/home',
-          },
-          {
-            label: 'Account',
-            icon: LucideWallet,
-            to: '/account',
-          },
+          { label: 'Home', icon: LucideHome, to: '/home' },
+          { label: 'Account', icon: LucideWallet, to: '/account' },
+          { label: 'Keypairs', icon: LucideKey, to: '/keypairs' },
+          { label: 'Tokens', icon: LucideCoins, to: '/tokens' },
           {
             label: 'Helius',
             icon: IconHelius,
@@ -48,16 +52,8 @@ const router = createBrowserRouter([
               { to: '/helius/settings', label: 'Settings' },
             ],
           },
-          {
-            label: 'Clusters',
-            icon: LucideNetwork,
-            to: '/clusters',
-          },
-          {
-            label: 'Labels',
-            icon: LucideTags,
-            to: '/labels',
-          },
+          { label: 'Clusters', icon: LucideNetwork, to: '/clusters' },
+          { label: 'Labels', icon: LucideTags, to: '/labels' },
           { label: 'Todo', icon: LucideListChecks, to: '/todo' },
           { label: 'Dev', icon: LucideBug, to: '/dev' },
         ]}
@@ -73,8 +69,10 @@ const router = createBrowserRouter([
       { path: '/dev/*', element: <LazyDevFeature /> },
       { path: '/helius/*', element: <LazyHeliusFeature /> },
       { path: '/home', element: <LazyHomeFeature /> },
+      { path: '/keypairs/*', element: <LazyKeypairFeature /> },
       { path: '/labels/*', element: <LazyLabelFeature /> },
       { path: '/todo/*', element: <LazyTodoFeature /> },
+      { path: '/tokens/*', element: <LazyTokenFeature /> },
     ],
   },
 ])

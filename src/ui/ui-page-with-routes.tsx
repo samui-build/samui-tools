@@ -2,9 +2,10 @@ import { RouteObject, useRoutes } from 'react-router'
 import { UiPage, UiPageProps } from './ui-page.tsx'
 
 export interface UiPageWithRoutesProps extends UiPageProps {
+  path?: string
   routes: RouteObject[]
 }
 
-export function UiPageWithRoutes({ routes: children = [], ...props }: UiPageWithRoutesProps) {
-  return useRoutes([{ path: '*', element: <UiPage {...props} />, children }])
+export function UiPageWithRoutes({ path = '*', routes: children = [], ...pageProps }: UiPageWithRoutesProps) {
+  return useRoutes([{ path, element: <UiPage {...pageProps} />, children }])
 }

@@ -7,16 +7,16 @@ export interface UiPageWithTabsProps extends UiPageProps {
   tabs: UiTabRoute[]
 }
 
-export function UiPageWithTabs({ tabs, basePath, ...props }: UiPageWithTabsProps) {
+export function UiPageWithTabs({ tabs, basePath, ...pageProps }: UiPageWithTabsProps) {
   return (
     <UiPageWithRoutes
       routes={[
         {
           path: '*',
-          element: <UiTabRoutes basePath={basePath} tabs={tabs} />,
+          element: <UiTabRoutes basePath={basePath} tabs={tabs} variant="outline" />,
         },
       ]}
-      {...props}
+      {...pageProps}
     />
   )
 }

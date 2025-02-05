@@ -1,6 +1,6 @@
+import { WalletButton, WalletIcon } from '@/features/solana'
 import { Burger, Button, Flex, Group } from '@mantine/core'
 import { NavLink as Link, useLocation } from 'react-router'
-import { WalletButton, WalletIcon } from '../features/solana/solana-provider.tsx'
 import { UiLayoutLogo } from './ui-layout-logo.tsx'
 
 export interface AppLayoutHeaderLink {

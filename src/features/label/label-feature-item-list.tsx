@@ -1,5 +1,5 @@
+import { UiCard } from '@/ui'
 import { Alert, Loader } from '@mantine/core'
-import { UiCard } from '../../ui'
 import { LabelGroup, useLabelCreate, useLabelDelete, useLabelItemList, useLabelUpdate } from './data-access'
 import { LabelUiButtonAddLabel, LabelUiTableItems } from './ui'
 

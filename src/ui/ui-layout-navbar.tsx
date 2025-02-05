@@ -1,5 +1,5 @@
+import { ClusterUiSelect } from '@/features/cluster/ui'
 import { Box, Flex, Group, ScrollArea } from '@mantine/core'
-import { ClusterUiSelect } from '../features/cluster/ui'
 import { UiLayoutNavbarLinkGroup, UiLayoutNavbarLinksGroup } from './ui-layout-navbar-links-group'
 import classes from './ui-layout-navbar.module.css'
 import { UiThemeToggle } from './ui-theme-toggle.tsx'
