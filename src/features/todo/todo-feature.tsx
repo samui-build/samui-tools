@@ -1,15 +1,23 @@
 import { LucideListChecks } from 'lucide-react'
-import { useRoutes } from 'react-router'
-import { UiPage } from '../../ui'
+import { UiPageWithRoutes, UiPageWithRoutesProps } from '../../ui'
+import { useTodoListCreate } from './data-access'
 import { TodoFeatureLists } from './todo-feature-lists.tsx'
-import { TodoUiAddTodoList } from './ui/todo-ui-add-todo-list.tsx'
+import { TodoUiAddTodoList } from './ui'
 
 export default function TodoFeature() {
-  return useRoutes([
-    {
-      path: '',
-      element: <UiPage title="Todo" icon={<LucideListChecks size={24} />} action={<TodoUiAddTodoList />} />,
-      children: [{ index: true, element: <TodoFeatureLists /> }],
-    },
-  ])
+  const mutationCreate = useTodoListCreate()
+
+  const page: UiPageWithRoutesProps = {
+    title: 'Todo',
+    icon: <LucideListChecks size={24} />,
+    action: <TodoUiAddTodoList create={mutationCreate.mutateAsync} />,
+    routes: [
+      {
+        path: '',
+        element: <TodoFeatureLists />,
+      },
+    ],
+  }
+
+  return <UiPageWithRoutes {...page} />
 }

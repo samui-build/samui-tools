@@ -1,7 +1,7 @@
 import { Accordion } from '@mantine/core'
 import { LucideListCheck } from 'lucide-react'
 import { ReactNode } from 'react'
-import { TodoList } from '../data-access/todo-db.ts'
+import { TodoList } from '../data-access'
 
 export function TodoUiTodoLists({
   todoLists,

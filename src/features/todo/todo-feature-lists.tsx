@@ -1,8 +1,7 @@
 import { Alert, Flex, Loader } from '@mantine/core'
-import { useTodoLists } from './data-access/todo-list-provider.tsx'
+import { useTodoLists } from './data-access'
 import { TodoFeatureDetail } from './todo-feature-detail.tsx'
-
-import { TodoUiTodoLists } from './ui/todo-ui-todo-lists.tsx'
+import { TodoUiTodoLists } from './ui'
 
 export function TodoFeatureLists() {
   const queryLists = useTodoLists()

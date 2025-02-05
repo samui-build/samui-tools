@@ -1,7 +1,13 @@
 import { Flex, Group, Text, useMantineColorScheme, useMantineTheme } from '@mantine/core'
 import { ReactNode } from 'react'
 
-export function UiPageHeader({ action, icon, title }: { action?: ReactNode; icon?: ReactNode; title?: string }) {
+export interface UiPageHeaderProps {
+  title?: string
+  icon?: ReactNode
+  action?: ReactNode
+}
+
+export function UiPageHeader({ action, icon, title }: UiPageHeaderProps) {
   const { colors } = useMantineTheme()
   const { colorScheme } = useMantineColorScheme()
   const bg = colorScheme === 'dark' ? colors.dark[8] : colors.gray[0]

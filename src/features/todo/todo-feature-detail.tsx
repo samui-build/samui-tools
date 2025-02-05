@@ -1,14 +1,13 @@
 import { Alert, Button, Group, Loader, Stack, Text } from '@mantine/core'
-import { TodoList } from './data-access/todo-db.ts'
 import {
+  TodoList,
   useTodoItemCreate,
   useTodoItemDelete,
   useTodoItems,
   useTodoItemToggle,
   useTodoListDelete,
-} from './data-access/todo-list-provider.tsx'
-import { TodoUiCreateForm } from './ui/todo-ui-create-form.tsx'
-import { TodoUiTodoItems } from './ui/todo-ui-todo-items.tsx'
+} from './data-access'
+import { TodoUiCreateForm, TodoUiTodoItems } from './ui'
 
 export function TodoFeatureDetail({ list }: { list: TodoList }) {
   const mutationDeleteList = useTodoListDelete()

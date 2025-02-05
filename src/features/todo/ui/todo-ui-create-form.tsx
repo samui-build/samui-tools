@@ -1,7 +1,7 @@
 import { ActionIcon, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { LucideCheck } from 'lucide-react'
-import { TodoItem, TodoList } from '../data-access/todo-db.ts'
+import { TodoItem, TodoList } from '../data-access'
 
 export function TodoUiCreateForm({
   todoList,

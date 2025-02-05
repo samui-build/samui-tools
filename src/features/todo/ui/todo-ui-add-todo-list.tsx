@@ -1,9 +1,8 @@
 import { Button } from '@mantine/core'
 import { LucideListPlus } from 'lucide-react'
-import { useTodoListCreate } from '../data-access/todo-list-provider.tsx'
+import { TodoList } from '../data-access'
 
-export function TodoUiAddTodoList() {
-  const mutationCreate = useTodoListCreate()
+export function TodoUiAddTodoList({ create }: { create: (input: TodoList) => Promise<void> }) {
   return (
     <Button
       leftSection={<LucideListPlus size={16} />}
@@ -14,7 +13,7 @@ export function TodoUiAddTodoList() {
         if (!title?.trim()?.length) {
           return
         }
-        await mutationCreate.mutateAsync({ title })
+        await create({ title })
       }}
     >
       Add Todo List

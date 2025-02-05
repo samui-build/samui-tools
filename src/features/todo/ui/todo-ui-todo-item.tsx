@@ -1,6 +1,6 @@
 import { ActionIcon, Alert, Group, Switch, Text } from '@mantine/core'
 import { LucideTrash } from 'lucide-react'
-import { TodoItem } from '../data-access/todo-db.ts'
+import { TodoItem } from '../data-access'
 
 export function TodoUiTodoItem({
   deleteTodo,

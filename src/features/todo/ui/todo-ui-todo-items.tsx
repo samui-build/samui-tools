@@ -1,6 +1,6 @@
 import { Stack } from '@mantine/core'
-import { TodoItem } from '../data-access/todo-db.ts'
-import { TodoUiTodoItem } from './todo-ui-todo-item.tsx'
+import { TodoItem } from '../data-access'
+import { TodoUiTodoItem } from './todo-ui-todo-item'
 
 export function TodoUiTodoItems({
   deleteItem,
