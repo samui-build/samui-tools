@@ -8,7 +8,7 @@ export function TodoUiAddTodoList() {
     <Button
       leftSection={<LucideListPlus size={16} />}
       variant="light"
-      size="sm"
+      size="xs"
       onClick={async () => {
         const title = window.prompt('Enter list name', '')
         if (!title?.trim()?.length) {

@@ -1,16 +1,17 @@
 import { Navigate, useRoutes } from 'react-router'
+import { UiPage } from '../../ui'
+import { IconHelius } from '../../ui/icon/helius.tsx'
 import { HeliusProvider } from './data-access'
 import { HeliusFeatureDas } from './helius-feature-das.tsx'
 import { HeliusFeatureOverview } from './helius-feature-overview.tsx'
 import { HeliusFeatureSettings } from './helius-feature-settings.tsx'
 import { HeliusFeatureWebhooks } from './helius-feature-webhooks.tsx'
-import { HeliusUiLayout } from './ui/helius-ui-layout.tsx'
 
 export default function HeliusFeature() {
   const routes = useRoutes([
     {
       path: '',
-      element: <HeliusUiLayout />,
+      element: <UiPage title="Helius" icon={<IconHelius size={24} />} />,
       children: [
         { index: true, element: <Navigate to="./overview" replace /> },
         { path: '/overview', element: <HeliusFeatureOverview /> },

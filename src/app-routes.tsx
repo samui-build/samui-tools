@@ -1,4 +1,4 @@
-import { LucideHome, LucideListChecks, LucideNetwork, LucideWallet } from 'lucide-react'
+import { LucideHome, LucideListChecks, LucideNetwork, LucideTags, LucideWallet } from 'lucide-react'
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router'
 import {
   LazyAccountDetailFeature,
@@ -6,6 +6,7 @@ import {
   LazyClusterFeature,
   LazyHeliusFeature,
   LazyHomeFeature,
+  LazyLabelFeature,
   LazyTodoFeature,
 } from './features'
 import { UiLayout } from './ui'
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
             icon: LucideNetwork,
             to: '/clusters',
           },
+          {
+            label: 'Labels',
+            icon: LucideTags,
+            to: '/labels',
+          },
           { label: 'Todo', icon: LucideListChecks, to: '/todo' },
         ]}
       >
@@ -64,6 +70,7 @@ const router = createBrowserRouter([
       { path: '/clusters', element: <LazyClusterFeature /> },
       { path: '/helius/*', element: <LazyHeliusFeature /> },
       { path: '/home', element: <LazyHomeFeature /> },
+      { path: '/labels/*', element: <LazyLabelFeature /> },
       { path: '/todo/*', element: <LazyTodoFeature /> },
     ],
   },

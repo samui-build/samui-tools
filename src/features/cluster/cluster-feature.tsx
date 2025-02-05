@@ -1,16 +1,14 @@
-import { Container, Stack, Text, Title } from '@mantine/core'
+import { LucideNetwork } from 'lucide-react'
+import { useRoutes } from 'react-router'
+import { UiPage } from '../../ui'
 import { ClusterUiModal, ClusterUiTable } from './ui'
 
 export default function ClusterFeature() {
-  return (
-    <Container py="xl" my="xl">
-      <Stack align="center" gap="xl">
-        <Title order={2}>Clusters</Title>
-        <Text>Manage and select your Solana clusters</Text>
-        <ClusterUiModal />
-      </Stack>
-
-      <ClusterUiTable />
-    </Container>
-  )
+  return useRoutes([
+    {
+      path: '',
+      element: <UiPage title="Clusters" icon={<LucideNetwork size={24} />} action={<ClusterUiModal size="xs" />} />,
+      children: [{ index: true, element: <ClusterUiTable /> }],
+    },
+  ])
 }

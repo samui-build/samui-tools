@@ -1,9 +1,9 @@
-import { Button, Modal, Select, TextInput } from '@mantine/core'
+import { Button, ButtonProps, Modal, Select, TextInput } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { useState } from 'react'
 import { ClusterNetwork, useCluster } from '../data-access'
 
-export function ClusterUiModal() {
+export function ClusterUiModal({ ...props }: ButtonProps) {
   const { addCluster } = useCluster()
   const [opened, { close, open }] = useDisclosure(false)
   const [name, setName] = useState('')
@@ -12,7 +12,9 @@ export function ClusterUiModal() {
 
   return (
     <>
-      <Button onClick={open}>Add Cluster</Button>
+      <Button onClick={open} {...props}>
+        Add Cluster
+      </Button>
       <Modal opened={opened} onClose={close} title="Add Cluster">
         <TextInput type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
         <TextInput type="text" placeholder="Endpoint" value={endpoint} onChange={(e) => setEndpoint(e.target.value)} />
