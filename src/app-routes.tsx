@@ -1,6 +1,5 @@
 import {
-  LazyAccountDetailFeature,
-  LazyAccountListFeature,
+  LazyAccountFeature,
   LazyClusterFeature,
   LazyDevFeature,
   LazyHeliusFeature,
@@ -12,17 +11,7 @@ import {
   LazyTokenFeature,
 } from '@/features'
 import { IconHelius, UiLayout } from '@/ui'
-import {
-  LucideBug,
-  LucideCoins,
-  LucideHandMetal,
-  LucideHome,
-  LucideKey,
-  LucideListChecks,
-  LucideNetwork,
-  LucideTags,
-  LucideWallet,
-} from 'lucide-react'
+import { LucideCoins, LucideHandMetal, LucideHome, LucideListChecks, LucideSettings, LucideWallet } from 'lucide-react'
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router'
 
 const router = createBrowserRouter([
@@ -42,7 +31,6 @@ const router = createBrowserRouter([
         navbarLinkGroups={[
           { label: 'Home', icon: LucideHome, to: '/home' },
           { label: 'Account', icon: LucideWallet, to: '/account' },
-          { label: 'Keypairs', icon: LucideKey, to: '/keypairs' },
           { label: 'Tokens', icon: LucideCoins, to: '/tokens' },
           {
             label: 'Helius',
@@ -62,10 +50,17 @@ const router = createBrowserRouter([
               { to: '/mpl-core/create', label: 'Create' },
             ],
           },
-          { label: 'Clusters', icon: LucideNetwork, to: '/clusters' },
-          { label: 'Labels', icon: LucideTags, to: '/labels' },
+          {
+            label: 'Settings',
+            icon: LucideSettings,
+            links: [
+              { label: 'Clusters', to: '/clusters' },
+              { label: 'Labels', to: '/labels' },
+              { label: 'Keypairs', to: '/keypairs' },
+              { label: 'Dev', to: '/dev' },
+            ],
+          },
           { label: 'Todo', icon: LucideListChecks, to: '/todo' },
-          { label: 'Dev', icon: LucideBug, to: '/dev' },
         ]}
       >
         <Outlet />
@@ -73,8 +68,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <Navigate to="./home" replace /> },
-      { path: '/account', element: <LazyAccountListFeature /> },
-      { path: '/account/:address', element: <LazyAccountDetailFeature /> },
+      { path: '/account/*', element: <LazyAccountFeature /> },
       { path: '/clusters', element: <LazyClusterFeature /> },
       { path: '/dev/*', element: <LazyDevFeature /> },
       { path: '/helius/*', element: <LazyHeliusFeature /> },

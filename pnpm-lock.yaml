@@ -86,6 +86,9 @@ importers:
       react-router:
         specifier: ^7.1.5
         version: 7.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      timeago-react:
+        specifier: ^3.0.6
+        version: 3.0.6(react@18.3.1)
     devDependencies:
       '@eslint/js':
         specifier: ^9.17.0
@@ -4370,6 +4373,14 @@ packages:
 
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
+
+  timeago-react@3.0.6:
+    resolution: {integrity: sha512-4ywnCX3iFjdp84WPK7gt8s4n0FxXbYM+xv8hYL73p83dpcMxzmO+0W4xJuxflnkWNvum5aEaqTe6LZ3lUIudjQ==}
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+
+  timeago.js@4.0.2:
+    resolution: {integrity: sha512-a7wPxPdVlQL7lqvitHGGRsofhdwtkoSXPGATFuSOA2i1ZNQEPLrGnj68vOp2sOJTCFAQVXPeNMX/GctBaO9L2w==}
 
   timers-browserify@2.0.12:
     resolution: {integrity: sha512-9phl76Cqm6FhSX9Xe1ZUAMLtm1BLkKj2Qd5ApyWkXzsMRaA7dgr81kf4wJmQf/hAvg8EEyJxDo3du/0KlhPiKQ==}
@@ -10069,6 +10080,13 @@ snapshots:
   throat@5.0.0: {}
 
   through@2.3.8: {}
+
+  timeago-react@3.0.6(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      timeago.js: 4.0.2
+
+  timeago.js@4.0.2: {}
 
   timers-browserify@2.0.12:
     dependencies:

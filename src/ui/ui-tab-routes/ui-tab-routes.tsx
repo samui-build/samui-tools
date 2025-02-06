@@ -26,7 +26,6 @@ export function UiTabRoutes({
   // Set default redirect route to the first tab
   const redirect = tabs.length && tabs[0].path !== '' ? tabs[0].path : undefined
 
-  console.log('activeTab', activeTab)
   return (
     <Flex direction="column" justify="space-between" h="100%">
       <Tabs

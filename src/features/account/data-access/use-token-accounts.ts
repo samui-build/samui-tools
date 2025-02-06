@@ -1,7 +1,7 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import { useQuery } from '@tanstack/react-query'
 import { useCluster } from '../../cluster/data-access'
-import { getAllTokenAccounts } from './get-all-token-accounts'
+import { getAllTokenAccounts } from './get-all-token-accounts.ts'
 
 export function useTokenAccounts() {
   const { publicKey } = useWallet()

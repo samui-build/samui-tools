@@ -1,7 +1,6 @@
 import { lazy } from 'react'
 
-export const LazyAccountDetailFeature = lazy(() => import('./account/account-feature-detail'))
-export const LazyAccountListFeature = lazy(() => import('./account/account-feature-list'))
+export const LazyAccountFeature = lazy(() => import('./account/account-feature'))
 export const LazyClusterFeature = lazy(() => import('./cluster/cluster-feature'))
 export const LazyDevFeature = lazy(() => import('./dev/dev-feature.tsx'))
 export const LazyHeliusFeature = lazy(() => import('./helius/helius-feature'))

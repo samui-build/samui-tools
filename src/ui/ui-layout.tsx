@@ -1,3 +1,4 @@
+import { AccountUiBalanceCheckWallet } from '@/features/account/ui/account-ui-balance-check-wallet.tsx'
 import { ClusterUiChecker } from '@/features/cluster/ui'
 import { AppShell, Loader } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
@@ -47,7 +48,7 @@ export function UiLayout({
       <AppShell.Main>
         <Suspense fallback={<Loader />}>
           <ClusterUiChecker>
-            <></>
+            <AccountUiBalanceCheckWallet />
           </ClusterUiChecker>
           {children}
         </Suspense>

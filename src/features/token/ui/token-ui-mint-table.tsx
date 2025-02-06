@@ -1,4 +1,4 @@
-import { ellipsify } from '@/features/account/ui/account-ui.tsx'
+import { ellipsify } from '@/ui'
 import { ActionIcon, Anchor, Group, Table } from '@mantine/core'
 import { LucideTrash } from 'lucide-react'
 import { Link } from 'react-router'
