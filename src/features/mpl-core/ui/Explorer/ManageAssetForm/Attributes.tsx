@@ -1,3 +1,6 @@
+import { useInvalidateFetchAssetWithCollection } from '@/features/mpl-core/data-access'
+import { AssetWithCollection } from '@/features/mpl-core/data-access/type'
+import { useUmi } from '@/features/solana'
 import { Button, CloseButton, Group, Stack, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { notifications } from '@mantine/notifications'
@@ -98,7 +101,6 @@ export function Attributes({ asset }: AssetWithCollection) {
       </span>
 
       <Button
-        placeholder="Wallet address"
         {...form.getInputProps('destination')}
         loading={loading}
         disabled={!form.isValid()}

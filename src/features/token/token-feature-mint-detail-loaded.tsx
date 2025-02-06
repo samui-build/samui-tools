@@ -17,7 +17,6 @@ export function TokenFeatureMintDetailLoaded({
   const query = useQuerySplTokenGetMint({
     connection,
     mint: new PublicKey(tokenMint.address),
-    programId: new PublicKey(tokenMint.programId),
   })
 
   return (
@@ -26,6 +25,7 @@ export function TokenFeatureMintDetailLoaded({
         <Loader />
       ) : query.data ? (
         <MintOverview
+          account={query.data.account}
           tokenMetadata={query.data.tokenMetadata}
           mplMetadata={query.data.mplMetadata}
           mint={query.data.mint}
