@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import { useGetSnapshots, useGetSnapshotsForWallet } from './use-get-snapshots.tsx'
 
 export function DevFeatureAllocations() {
-  const [endpoint, setEndpoint] = useState('http://localhost:8787')
+  const [endpoint, setEndpoint] = useState('https://collection-allocation.samui.build')
   const [address, setAddress] = useState('')
 
   const mutationSnapshots = useGetSnapshots(endpoint)
