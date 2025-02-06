@@ -1,6 +1,9 @@
-import { createTheme } from '@mantine/core'
+import { createTheme, DEFAULT_THEME } from '@mantine/core'
 
 export const theme = createTheme({
   /** Put your mantine theme override here */
-  primaryColor: 'yellow',
+  colors: {
+    brand: DEFAULT_THEME.colors.yellow,
+  },
+  primaryColor: 'brand',
 })
