@@ -1,3 +1,4 @@
+import { DevFeatureAllocations } from '@/features/dev/dev-feature-allocations.tsx'
 import { DevFeatureOverview } from '@/features/dev/dev-feature-overview.tsx'
 import { UiPageWithTabs } from '@/ui'
 import { LucideBug } from 'lucide-react'
@@ -12,6 +13,7 @@ export default function DevFeature() {
       tabs={[
         { label: 'Overview', path: 'overview', element: <DevFeatureOverview /> },
         { label: 'New', path: 'new', element: <DevFeatureNew /> },
+        { label: 'Allocation', path: 'allocation', element: <DevFeatureAllocations /> },
       ]}
     />
   )
