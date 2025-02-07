@@ -1,15 +1,18 @@
 import { useMutation } from '@tanstack/react-query'
 import { CreateWebhookRequest } from 'helius-sdk'
 import { useHelius } from './helius-provider.tsx'
+import { useHeliusGetAllWebhooks } from './use-helius-get-all-webhooks.ts'
 
 export function useHeliusCreateWebhook() {
-  const { helius, cluster } = useHelius()
+  const { helius } = useHelius()
+  const list = useHeliusGetAllWebhooks()
 
   return useMutation({
-    mutationKey: ['helius', 'createWebhook', { cluster }],
-    mutationFn: async (request: CreateWebhookRequest) => {
+    mutationFn: async (request: Omit<CreateWebhookRequest, 'accountAddressOwners' | 'txnStatus' | 'encoding'>) => {
       try {
-        return await helius.createWebhook(request)
+        const result = await helius.createWebhook(request)
+        await list.refetch()
+        return result
       } catch (error) {
         throw error instanceof Error ? error.message : JSON.stringify(error)
       }

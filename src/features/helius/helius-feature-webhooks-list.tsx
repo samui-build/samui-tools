@@ -1,35 +1,46 @@
+import { HeliusUiWebhookListItem } from '@/features/helius/ui/helius-ui-webhook-list-item.tsx'
+import { HeliusUiWebhookList } from '@/features/helius/ui/helius-ui-webhook-list.tsx'
 import { UiCard } from '@/ui'
-import { Accordion, Alert, Stack } from '@mantine/core'
-import { Webhook } from 'helius-sdk'
-import { LucideWebhook } from 'lucide-react'
-import { useHeliusGetAllWebhooks } from './data-access'
+import { Alert, Stack } from '@mantine/core'
+import {
+  useHeliusCreateWebhook,
+  useHeliusDeleteWebhook,
+  useHeliusGetAllWebhooks,
+  useHeliusUpdateWebhook,
+} from './data-access'
 
 export function HeliusFeatureWebhooksList() {
   const query = useHeliusGetAllWebhooks()
+  const mutationCreate = useHeliusCreateWebhook()
+  const mutationDelete = useHeliusDeleteWebhook()
+  const mutationUpdate = useHeliusUpdateWebhook()
+
   return (
     <Stack>
-      <UiCard title="Webhook List" description="List of all webhooks" isLoading={query.isLoading} error={query.error}>
+      <UiCard
+        title="Webhook"
+        description="Show and manage your Helius webhooks"
+        isLoading={query.isLoading}
+        error={query.error}
+      >
         {query.data?.length ? (
-          <HeliusUiWebhookList webhooks={query.data} />
+          <HeliusUiWebhookList
+            create={mutationCreate.mutateAsync}
+            createLoading={mutationCreate.isPending}
+            webhooks={query.data}
+            render={(webhook) => (
+              <HeliusUiWebhookListItem
+                webhook={webhook}
+                delete={mutationDelete.mutateAsync}
+                update={mutationUpdate.mutateAsync}
+                updateLoading={mutationUpdate.isPending}
+              />
+            )}
+          />
         ) : (
           <Alert color="blue" title="No webhooks found" />
         )}
       </UiCard>
     </Stack>
-  )
-}
-
-export function HeliusUiWebhookList({ webhooks }: { webhooks: Webhook[] }) {
-  return (
-    <Accordion variant="contained">
-      {webhooks.map((webhook) => (
-        <Accordion.Item value={webhook.webhookID} key={webhook.webhookID}>
-          <Accordion.Control icon={<LucideWebhook />}>{webhook.webhookID}</Accordion.Control>
-          <Accordion.Panel>
-            <pre>{JSON.stringify(webhook, null, 2)}</pre>
-          </Accordion.Panel>
-        </Accordion.Item>
-      ))}
-    </Accordion>
   )
 }

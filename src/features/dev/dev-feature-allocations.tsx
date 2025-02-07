@@ -71,7 +71,6 @@ export function DevFeatureAllocations() {
             </Button>
           }
         />
-
         <Stack>
           {snapshots
             .sort((a, b) => a.id.localeCompare(b.id))
