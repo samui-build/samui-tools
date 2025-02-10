@@ -2,6 +2,7 @@ import {
   LazyAccountFeature,
   LazyClusterFeature,
   LazyDevFeature,
+  LazyFilesFeature,
   LazyHeliusFeature,
   LazyHomeFeature,
   LazyKeypairFeature,
@@ -11,7 +12,15 @@ import {
   LazyTokenFeature,
 } from '@/features'
 import { IconHelius, UiLayout } from '@/ui'
-import { LucideCoins, LucideHandMetal, LucideHome, LucideListChecks, LucideSettings, LucideWallet } from 'lucide-react'
+import {
+  LucideCoins,
+  LucideFiles,
+  LucideHandMetal,
+  LucideHome,
+  LucideListChecks,
+  LucideSettings,
+  LucideWallet,
+} from 'lucide-react'
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router'
 
 const router = createBrowserRouter([
@@ -61,6 +70,7 @@ const router = createBrowserRouter([
             ],
           },
           { label: 'Todo', icon: LucideListChecks, to: '/todo' },
+          { label: 'Files', icon: LucideFiles, to: '/files' },
         ]}
       >
         <Outlet />
@@ -71,6 +81,7 @@ const router = createBrowserRouter([
       { path: '/account/*', element: <LazyAccountFeature /> },
       { path: '/clusters', element: <LazyClusterFeature /> },
       { path: '/dev/*', element: <LazyDevFeature /> },
+      { path: '/files/*', element: <LazyFilesFeature /> },
       { path: '/helius/*', element: <LazyHeliusFeature /> },
       { path: '/home', element: <LazyHomeFeature /> },
       { path: '/keypairs/*', element: <LazyKeypairFeature /> },

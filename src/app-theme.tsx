@@ -12,7 +12,7 @@ export function AppTheme({
   theme?: MantineThemeOverride
 }) {
   return (
-    <MantineProvider theme={theme}>
+    <MantineProvider theme={theme} defaultColorScheme="auto">
       <Notifications />
       <ModalsProvider>{children}</ModalsProvider>
     </MantineProvider>

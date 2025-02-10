@@ -6,6 +6,10 @@ export interface UiPageWithRoutesProps extends UiPageProps {
   routes: RouteObject[]
 }
 
-export function UiPageWithRoutes({ path = '*', routes: children = [], ...pageProps }: UiPageWithRoutesProps) {
+export function UiPageWithRoutes({
+  path = '*',
+  routes: children = [],
+  ...pageProps
+}: Omit<UiPageWithRoutesProps, 'children'>) {
   return useRoutes([{ path, element: <UiPage {...pageProps} />, children }])
 }

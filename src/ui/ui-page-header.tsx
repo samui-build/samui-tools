@@ -2,7 +2,7 @@ import { Flex, Group, Text, useMantineColorScheme, useMantineTheme } from '@mant
 import { ReactNode } from 'react'
 
 export interface UiPageHeaderProps {
-  title?: string
+  title?: ReactNode
   icon?: ReactNode
   action?: ReactNode
 }
@@ -13,13 +13,17 @@ export function UiPageHeader({ action, icon, title }: UiPageHeaderProps) {
   const bg = colorScheme === 'dark' ? colors.dark[8] : colors.gray[0]
 
   return (
-    <Flex justify="space-between" align="center" wrap="nowrap" bg={bg} px="md" py="xs">
+    <Flex mih={60} justify="space-between" align="center" wrap="nowrap" bg={bg} px="md" py="xs">
       {icon || title ? (
         <Group justify="center" align="center" wrap="nowrap" gap="xs">
           {icon ? icon : null}
-          <Text size="xl" span fw={700}>
-            {title}
-          </Text>
+          {typeof title === 'string' ? (
+            <Text size="xl" span fw={700}>
+              {title}
+            </Text>
+          ) : (
+            title
+          )}
         </Group>
       ) : (
         <Group />
