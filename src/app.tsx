@@ -1,3 +1,4 @@
+import './app-theme-styles.ts'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { AppRoutes } from './app-routes'
 import { AppTheme } from './app-theme.tsx'

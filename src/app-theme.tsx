@@ -1,6 +1,3 @@
-import '@mantine/core/styles.css'
-import '@mantine/notifications/styles.css'
-import '@mantine/code-highlight/styles.css'
 import { MantineProvider, MantineThemeOverride } from '@mantine/core'
 import { ModalsProvider } from '@mantine/modals'
 import { Notifications } from '@mantine/notifications'
